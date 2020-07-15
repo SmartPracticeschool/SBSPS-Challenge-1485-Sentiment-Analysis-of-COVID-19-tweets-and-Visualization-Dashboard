@@ -103,7 +103,7 @@ def predict():
     comment = request.form['Tweet']
     twitter_client = TwitterClient()
     tweets_df = twitter_client.get_tweets(comment, maxTweets=100)                           
-    tweets_df['len']=tweets_df['tweets'].str.len()                       
+    tweets_df['len']=tweets_df["tweets"].str.len()                       
     df1= tweets_df[(tweets_df['len'] <=137)]
     df2=tweets_df[(tweets_df['len'] >=150)]
     data=pd.concat([df1,df2])                              
